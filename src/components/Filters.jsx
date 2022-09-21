@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import OrderFilter from './OrderFilter';
@@ -137,18 +138,19 @@ function Filters({ planets, setFilteredPlanets }) {
   }, [filters, planets, setFilteredPlanets, order]);
 
   return (
-    <div>
-      <label htmlFor="name-filter">
+    <div className="p-5 flex flex-col items-center bg-gray-800 text-white">
+      <label htmlFor="name-filter" className="font-bold text-2xl mb-2">
         Filtrar por nome:
-        <input
-          type="text"
-          name="name-filter"
-          id="name-filter"
-          data-testid="name-filter"
-          value={ filters.filterByName.name }
-          onChange={ handleSearch }
-        />
       </label>
+      <input
+        type="text"
+        name="name-filter"
+        id="name-filter"
+        data-testid="name-filter"
+        className="border-2 border-gray-400 rounded-md p-2 mb-5 text-black"
+        value={ filters.filterByName.name }
+        onChange={ handleSearch }
+      />
 
       <OrderFilter setOrder={ setOrder } />
 

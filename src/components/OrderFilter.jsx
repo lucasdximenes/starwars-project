@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import { COLUMNS } from '../helpers/constants';
@@ -19,43 +21,46 @@ function OrderFilter({ setOrder }) {
   };
 
   return (
-    <div>
-      <label htmlFor="order">
+    <div className="flex flex-col items-start gap-2 lg:flex-row lg:justify-around lg:items-center lg:w-1/2 mb-4">
+      <label htmlFor="order" className="text-lg font-bold text-white">
         Ordenar por:
-        <select
-          name="column"
-          id="order"
-          data-testid="column-sort"
-          value={ column }
-          onChange={ handleOrder }
-        >
-          {COLUMNS.map((col) => (
-            <option key={ col } value={ col }>
-              {col}
-            </option>
-          ))}
-        </select>
       </label>
+      <select
+        name="column"
+        id="order"
+        data-testid="column-sort"
+        value={ column }
+        onChange={ handleOrder }
+        className="border-2 border-gray-400 rounded-md p-2 text-black"
+      >
+        {COLUMNS.map((col) => (
+          <option key={ col } value={ col }>
+            {col}
+          </option>
+        ))}
+      </select>
 
-      <label htmlFor="asc">
+      <label htmlFor="asc" className="text-lg font-bold text-white">
         <input
           type="radio"
           name="sort"
           id="asc"
           value="ASC"
           data-testid="column-sort-input-asc"
+          className="mr-2"
           onChange={ handleOrder }
         />
         Ascendente
       </label>
 
-      <label htmlFor="desc">
+      <label htmlFor="desc" className="text-lg font-bold text-white">
         <input
           type="radio"
           name="sort"
           id="desc"
           value="DESC"
           data-testid="column-sort-input-desc"
+          className="mr-2"
           onChange={ handleOrder }
         />
         Descendente
@@ -64,6 +69,7 @@ function OrderFilter({ setOrder }) {
       <button
         type="button"
         data-testid="column-sort-button"
+        className="bg-blue-600 text-black rounded-md p-2 font-bold hover:bg-blue-700 transition-colors self-center"
         onClick={ handleClick }
       >
         Ordenar
