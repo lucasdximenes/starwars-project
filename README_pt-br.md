@@ -13,6 +13,8 @@ Este projeto foi desenvolvido durante o curso de Desenvolvimento Web da Trybe. O
 
 ## Preview
 
+[Demonstração](https://starwars-project-u7mk.vercel.app/)
+
 ![Preview](./preview/preview.jpg)
 
 ---
